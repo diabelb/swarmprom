@@ -27,6 +27,6 @@ after_success:
     docker push diabelb/swarmprom-node-exporter:v0.16.0;
     docker tag diabelb/swarmprom-alertmanager:$TRAVIS_BUILD_NUMBER diabelb/swarmprom-alertmanager:v0.15.3;
     docker push diabelb/swarmprom-alertmanager:v0.15.3;
-    docker tag diabelb/swarmprom-grafana:$TRAVIS_BUILD_NUMBER diabelb/swarmprom-grafana:6.7.6;
-    docker push diabelb/swarmprom-grafana:6.7.6;
+    docker tag diabelb/swarmprom-grafana:$TRAVIS_BUILD_NUMBER diabelb/swarmprom-grafana:7.3.10;
+    docker push diabelb/swarmprom-grafana:7.3.10;
     fi
