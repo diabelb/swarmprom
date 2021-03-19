@@ -21,8 +21,8 @@ after_success:
       echo "PR build, skipping Docker Hub push";
     else
     docker login -u "$DOCKER_USER" -p "$DOCKER_PASS";
-    docker tag diabelb/swarmprom-prometheus:$TRAVIS_BUILD_NUMBER diabelb/swarmprom-prometheus:v2.5.0;
-    docker push diabelb/swarmprom-prometheus:v2.5.0;
+    docker tag diabelb/swarmprom-prometheus:$TRAVIS_BUILD_NUMBER diabelb/swarmprom-prometheus:v2.25.2;
+    docker push diabelb/swarmprom-prometheus:v2.25.2;
     docker tag diabelb/swarmprom-node-exporter:$TRAVIS_BUILD_NUMBER diabelb/swarmprom-node-exporter:v0.16.0;
     docker push diabelb/swarmprom-node-exporter:v0.16.0;
     docker tag diabelb/swarmprom-alertmanager:$TRAVIS_BUILD_NUMBER diabelb/swarmprom-alertmanager:v0.15.3;

@@ -58,7 +58,7 @@ services:
           memory: 64M
 
   grafana:
-    image: stefanprodan/swarmprom-grafana:5.3.4
+    image: diabelb/swarmprom-grafana:7.3.10
     networks:
       - net
     environment:
@@ -147,7 +147,7 @@ services:
           memory: 64M
 
   prometheus:
-    image: stefanprodan/swarmprom-prometheus:v2.5.0
+    image: diabelb/swarmprom-prometheus:v2.25.2
     networks:
       - net
     command:
