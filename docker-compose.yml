@@ -156,7 +156,7 @@ services:
         - traefik.frontend.auth.basic.usersFile=/run/secrets/security.htpasswd
 
   node-exporter:
-    image: stefanprodan/swarmprom-node-exporter:v0.16.0
+    image: diabelb/swarmprom-node-exporter:v1.1.2
     networks:
       - swarmprom-net
     environment:
