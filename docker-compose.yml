@@ -124,7 +124,7 @@ services:
         - traefik.http.routers.alertmanager.service=alertmanager
         - traefik.http.routers.alertmanager.middlewares=redirect@file,auth@file
 
-  unsee:
+  karma:
     image: ghcr.io/prymitive/karma
     networks:
       - default
@@ -139,11 +139,11 @@ services:
       replicas: 1
       labels:
         - traefik.enable=true
-        - traefik.http.services.unsee.loadbalancer.server.port=8080
-        - traefik.http.routers.unsee.rule=Host(`unsee.${DOMAIN}`) # ${TODO: DOMAIN cannot be read after reboot}
-        - traefik.http.routers.unsee.entrypoints=http,https
-        - traefik.http.routers.unsee.service=unsee
-        - traefik.http.routers.unsee.middlewares=redirect@file,auth@file
+        - traefik.http.services.karma.loadbalancer.server.port=8080
+        - traefik.http.routers.karma.rule=Host(`karma.${DOMAIN}`) # ${TODO: DOMAIN cannot be read after reboot}
+        - traefik.http.routers.karma.entrypoints=http,https
+        - traefik.http.routers.karma.service=karma
+        - traefik.http.routers.karma.middlewares=redirect@file,auth@file
 
   node-exporter:
     image: diabelb/swarmprom-node-exporter:v1.1.2
