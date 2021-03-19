@@ -179,7 +179,7 @@ services:
           memory: 128M
 
   prometheus:
-    image: stefanprodan/swarmprom-prometheus:v2.5.0
+    image: diabelb/swarmprom-prometheus:v2.25.2
     networks:
       - default
       - swarmprom-net
@@ -207,14 +207,9 @@ services:
         limits:
           memory: 2048M
       labels:
-        - traefik.frontend.rule=Host:prometheus.${DOMAIN}
         - traefik.enable=true
-        - traefik.port=9090
-        - traefik.tags=${TRAEFIK_PUBLIC_TAG:-traefik-public}
-        - traefik.docker.network=traefik-public
-        # Traefik service that listens to HTTP
-        - traefik.redirectorservice.frontend.entryPoints=http
-        - traefik.redirectorservice.frontend.redirect.entryPoint=https
-        # Traefik service that listens to HTTPS
-        - traefik.webservice.frontend.entryPoints=https
-        - traefik.frontend.auth.basic.usersFile=/run/secrets/security.htpasswd
+        - traefik.http.services.prometheus.loadbalancer.server.port=9090
+        - traefik.http.routers.prometheus.rule=Host(`prometheus.${DOMAIN}`) # ${TODO: DOMAIN cannot be read after reboot}
+        - traefik.http.routers.prometheus.entrypoints=http,https
+        - traefik.http.routers.prometheus.service=prometheus
+        - traefik.http.routers.prometheus.middlewares=redirect@file,auth@file
