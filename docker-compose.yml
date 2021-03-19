@@ -139,7 +139,7 @@ services:
       replicas: 1
       labels:
         - traefik.enable=true
-        - traefik.http.services.unsee.loadbalancer.server.port=9093
+        - traefik.http.services.unsee.loadbalancer.server.port=8080
         - traefik.http.routers.unsee.rule=Host(`unsee.${DOMAIN}`) # ${TODO: DOMAIN cannot be read after reboot}
         - traefik.http.routers.unsee.entrypoints=http,https
         - traefik.http.routers.unsee.service=unsee
