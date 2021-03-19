@@ -131,7 +131,7 @@ services:
       - swarmprom-net
       - traefik-public
     environment:
-      - "ALERTMANAGER_URI=https://alertmanager"
+      - "ALERTMANAGER_URI=alertmanager:9093"
     secrets:
       - security.htpasswd
     deploy:
